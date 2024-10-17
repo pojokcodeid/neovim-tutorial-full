@@ -5,6 +5,10 @@ local M = {
 
 function M.config()
 	local icons = require("user.icons")
+	local hide_in_width = function()
+		return vim.fn.winwidth(0) > 75
+	end
+
 	local mode = {
 		"mode",
 		padding = 1,
@@ -22,6 +26,7 @@ function M.config()
 		end,
 		icon = icons.ui.Gear,
 		padding = 1,
+		cond = hide_in_width,
 	}
 
 	-- get space size
@@ -31,6 +36,17 @@ function M.config()
 			return icons.ui.Tab .. " " .. shiftwidth
 		end,
 		padding = 1,
+	}
+
+	local diff = {
+		"diff",
+		colored = true,
+		symbols = {
+			added = icons.git.LineAdded .. " ",
+			modified = icons.git.LineModified .. " ",
+			removed = icons.git.LineRemoved .. " ",
+		},
+		cond = hide_in_width,
 	}
 
   -- stylua: ignore
@@ -104,7 +120,7 @@ function M.config()
 			lualine_a = { mode },
 			lualine_b = { "branch" },
 			lualine_c = { get_lspinfo, "diagnostics" },
-			lualine_x = { spaces, "diff", "filetype" },
+			lualine_x = { diff, spaces, "filetype" },
 			lualine_y = { "progress" },
 			lualine_z = {
 				{ "location", separator = { left = "", right = " " }, left_padding = 3 },
