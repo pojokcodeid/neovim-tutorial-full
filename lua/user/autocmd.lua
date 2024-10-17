@@ -53,6 +53,11 @@ api.nvim_create_autocmd("TermOpen", {
 	group = "neovim_terminal",
 	command = "startinsert | set nonumber norelativenumber | nnoremap <buffer> <C-c> i<C-c>", -- Memasuki mode insert secara otomatis dan menonaktifkan nomor baris di buffer terminal
 })
+api.nvim_create_autocmd("FileType", {
+	group = "neovim_terminal",
+	pattern = "checkhealth",
+	command = "startinsert | set nonumber norelativenumber | nnoremap <buffer> <C-c> i<C-c>", -- Memasuki mode insert secara otomatis dan menonaktifkan nomor baris di buffer terminal
+})
 
 -- Fungsi untuk Membuat Direktori yang Tidak Ada pada BufWrite
 local function MkNonExDir(file, buf)

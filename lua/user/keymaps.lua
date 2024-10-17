@@ -24,9 +24,14 @@ for _, mode in ipairs({ "i", "v", "n", "x" }) do
 	keymap(mode, "<M-Up>", "<cmd>m-2<cr>", opts)
 	-- save file
 	keymap(mode, "<C-s>", "<cmd>silent! w<cr>", opts)
+	-- comment
+	keymap(mode, "<C-_>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", opts)
+	keymap(mode, "<C-/>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", opts)
 end
 -- move text visual blok mode
 keymap("x", "<A-Down>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
+-- duplicate line visual block
+keymap("x", "<S-Down>", ":'<,'>t'><cr>", opts)
 -- close windows
 keymap("n", "q", "<cmd>q<cr>", opts)
