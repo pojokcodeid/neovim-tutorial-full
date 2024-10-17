@@ -6,27 +6,8 @@ return {
 		dependencies = {
 			{ "MunifTanjim/nui.nvim" },
 		},
-		-- event = "BufWinEnter",
 		event = "VeryLazy",
-		opts = {
-			messages = {
-				enabled = false,
-			},
-			notify = {
-				enabled = true,
-			},
-			lsp = {
-				progress = {
-					enabled = true,
-				},
-				hover = {
-					enabled = false,
-				},
-				signature = {
-					enabled = false,
-				},
-			},
-		},
+		opts = {},
 		keys = {
 			{
 				"<S-Enter>",
