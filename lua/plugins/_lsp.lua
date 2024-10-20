@@ -1,8 +1,9 @@
 return {
 	{
-		"williamboman/mason-lspconfig.nvim",
+		"pojokcodeid/auto-lsp.nvim",
 		event = { "VeryLazy", "BufReadPre", "BufNewFile", "BufRead" },
 		dependencies = {
+			{ "williamboman/mason-lspconfig.nvim" },
 			{
 				"neovim/nvim-lspconfig",
 				lazy = true,
@@ -60,33 +61,13 @@ return {
 			opts.ensure_installed = opts.ensure_installed or {}
 			opts.automatic_installation = true
 			vim.list_extend(opts.ensure_installed, { "lua_ls" })
+			opts.format_on_save = false -- config format on save none-ls
+			opts.virtual_text = false
+			opts.timeout_ms = 5000
 			return opts
 		end,
 		config = function(_, opts)
-			require("mason-lspconfig").setup(opts)
-
-			local option = {}
-			require("mason-lspconfig").setup_handlers({
-				function(server_name) -- default handler (optional)
-					local capabilities = require("user.lsp.handlers").capabilities
-					if server_name == "clangd" then
-						capabilities.offsetEncoding = { "utf-16" }
-					end
-					if idxOf(opts.skip_config, server_name) == nil then
-						option = {
-							on_attach = require("user.lsp.handlers").on_attach,
-							capabilities = capabilities,
-						}
-						server_name = vim.split(server_name, "@")[1]
-						local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server_name)
-						if require_ok then
-							option = vim.tbl_deep_extend("force", conf_opts, option)
-						end
-						require("lspconfig")[server_name].setup(option)
-					end
-				end,
-			})
-			require("user.lsp.handlers").setup()
+			require("auto-lsp").setup(opts)
 		end,
 		-- stylua: ignore
 		keys = {

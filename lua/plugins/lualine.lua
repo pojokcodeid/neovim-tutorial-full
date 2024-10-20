@@ -97,6 +97,7 @@ function M.config()
 			c = { fg = colors.black, bg = colors.black_transparant },
 		},
 	}
+	---@diagnostic disable-next-line: different-requires
 	require("lualine").setup({
 		options = {
 			theme = bubbles_theme,
