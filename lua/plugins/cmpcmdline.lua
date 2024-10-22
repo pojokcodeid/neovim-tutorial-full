@@ -7,7 +7,25 @@ return {
 			{ "MunifTanjim/nui.nvim" },
 		},
 		event = "VeryLazy",
-		opts = {},
+		opts = {
+			messages = {
+				enabled = false,
+			},
+			notify = {
+				enabled = false,
+			},
+			lsp = {
+				progress = {
+					enabled = false,
+				},
+				hover = {
+					enabled = false,
+				},
+				signature = {
+					enabled = false,
+				},
+			},
+		},
 		keys = {
 			{
 				"<S-Enter>",
