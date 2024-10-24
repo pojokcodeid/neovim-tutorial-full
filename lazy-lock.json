@@ -3,7 +3,7 @@
   "Eva-Theme.nvim": { "branch": "master", "commit": "41aed21e939ab30298bd9881994d3ecc94bee427" },
   "LuaSnip": { "branch": "master", "commit": "787dee55ca364cc9119787165418fe93b74c1842" },
   "alpha-nvim": { "branch": "main", "commit": "bf3c8bb8c02ed3d9644cc5bbc48e2bdc39349cd7" },
-  "auto-bufferline.nvim": { "branch": "main", "commit": "5bade2069c8385938c4e6648e3e82317d3be8c57" },
+  "auto-bufferline.nvim": { "branch": "main", "commit": "f5835a4b62bfb6f6c829f8f050e5102ccf230b3e" },
   "auto-conform.nvim": { "branch": "main", "commit": "d04389f955dd0990e85a269b226199f458de32a6" },
   "auto-lint.nvim": { "branch": "main", "commit": "aff13cb8eaa055e66e940d43b7d83166397e5413" },
   "auto-lsp.nvim": { "branch": "main", "commit": "420bd7165d0afd396e05a3ad67ae228c36e2f044" },
