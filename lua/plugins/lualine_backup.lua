@@ -7,7 +7,7 @@ return {
 			require("auto-lualine").setup({
 				setColor = "Eva-Dark",
 				setOption = "roundedall",
-				setMode = 2,
+				setMode = 5,
 			})
 		end,
 	},
