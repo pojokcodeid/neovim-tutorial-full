@@ -7,4 +7,10 @@ _G.idxOf = function(array, value)
 	return nil
 end
 
+_G.LAZYGIT_TOGGLE=function ()
+  local Terminal = require("toggleterm.terminal").Terminal
+  local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+  lazygit:toggle()
+end
+
 return {}

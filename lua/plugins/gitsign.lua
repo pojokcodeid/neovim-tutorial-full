@@ -1,8 +1,11 @@
 return {
-	"lewis6991/gitsigns.nvim",
-	event = "VeryLazy",
-	opts = {
-		signs = {
+  "lewis6991/gitsigns.nvim",
+  lazy = true,
+  enabled = vim.fn.executable("git") == 1,
+  ft = "gitcommit",
+  event = "BufRead",
+  opts = {
+    signs = {
 			add = { text = "▎" },
 			change = { text = "▎" },
 			delete = { text = "" },
@@ -17,41 +20,54 @@ return {
 			topdelete = { text = "" },
 			changedelete = { text = "▎" },
 		},
-		on_attach = function(buffer)
-			local gs = package.loaded.gitsigns
-
-			local function map(mode, l, r, desc)
-				vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
-			end
-
-      -- stylua: ignore start
-      map("n", "]h", function()
-        if vim.wo.diff then
-          vim.cmd.normal({ "]c", bang = true })
-        else
-          gs.nav_hunk("next")
-        end
-      end, "Next Hunk")
-      map("n", "[h", function()
-        if vim.wo.diff then
-          vim.cmd.normal({ "[c", bang = true })
-        else
-          gs.nav_hunk("prev")
-        end
-      end, "Prev Hunk")
-      map("n", "]H", function() gs.nav_hunk("last") end, "Last Hunk")
-      map("n", "[H", function() gs.nav_hunk("first") end, "First Hunk")
-      map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
-      map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-      map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
-      map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
-      map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
-      map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
-      map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
-      map("n", "<leader>ghB", function() gs.blame() end, "Blame Buffer")
-      map("n", "<leader>ghd", gs.diffthis, "Diff This")
-      map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
-      map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
-		end,
-	},
+    signcolumn = true,
+    numhl = false,
+    linehl = false,
+    word_diff = false,
+    watch_gitdir = {
+      interval = 1000,
+      follow_files = true,
+    },
+    attach_to_untracked = true,
+    current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+    current_line_blame_opts = {
+      virt_text = true,
+      virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+      delay = 1000,
+      ignore_whitespace = false,
+    },
+    current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
+    sign_priority = 6,
+    status_formatter = nil, -- Use default
+    update_debounce = 200,
+    max_file_length = 40000,
+    preview_config = {
+      -- Options passed to nvim_open_win
+      border = "rounded",
+      style = "minimal",
+      relative = "cursor",
+      row = 0,
+      col = 1,
+    },
+  },
+  config = function(_, opts)
+    require("gitsigns").setup(opts)
+  end,
+  -- stylua: ignore
+  keys = {
+    { "<leader>g", "", desc = "  Git" },
+    { "<leader>gg",function()LAZYGIT_TOGGLE()end,desc = "Lazygit"},
+    { "<leader>gj",function()require("gitsigns").next_hunk()end,desc = "Next Hunk"},
+    { "<leader>gk",function()require("gitsigns").prev_hunk()end,desc = "Prev Hunk"},
+    { "<leader>gl",function()require("gitsigns").blame_line()end,desc = "Blame"},
+    { "<leader>gp",function()require("gitsigns").preview_hunk()end,desc = "Preview Hunk"},
+    { "<leader>gr",function()require("gitsigns").reset_hunk()end,desc = "Reset Hunk"},
+    { "<leader>gR",function()require("gitsigns").reset_buffer()end,desc = "Reset Buffer"},
+    { "<leader>gs",function()require("gitsigns").stage_hunk()end,desc = "Stage Hunge"},
+    { "<leader>gu",function()require("gitsigns").undo_stage_hunk()end,desc = "Undo Stage Hunge"},
+    { "<leader>go","<cmd>Telescope git_status<cr>",desc = "Opened Changed File"},
+    { "<leader>gb","<cmd>Telescope git_branches<cr>",desc = "Checkout Branch"},
+    { "<leader>gc","<cmd>Telescope git_commits<cr>",desc = "Checkout Commit"},
+    { "<leader>gd","<cmd>Gitsigns diffthis HEAD<cr>",desc = "Diff"},
+  },
 }
