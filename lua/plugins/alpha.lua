@@ -6,15 +6,13 @@ local M = {
 function M.config()
 	local alpha = require("alpha")
 	local startify = require("alpha.themes.startify")
-	local dash_model = {}
-	dash_model = {
+	local dash_model = {
 		[[                _      __                __    ]],
 		[[    ___ ___    (____  / /__  _______ ___/ ___  ]],
 		[[   / _ / _ \  / / _ \/  '_/ / __/ _ / _  / -_) ]],
 		[[  / .__\_____/ /\___/_/\_\  \__/\___\_,_/\__/  ]],
 		[[ /_/      |___/                                ]],
 	}
-
 	startify.section.header.val = dash_model
 	startify.section.top_buttons.val = {
 		startify.button("F", "󰈞  Find file", ":Telescope find_files <CR>"),
@@ -24,6 +22,7 @@ function M.config()
 		startify.button("t", "󰊄  Find text", ":Telescope live_grep <CR>"),
 		startify.button("c", "  Configuration", ":e $MYVIMRC <CR>"),
 		startify.button("z", "󰒲  Lazy", ":Lazy<CR>"),
+		startify.button("q", "󰅚  Quit", ":qa<CR>"),
 	}
 	-- disable MRU
 	startify.section.mru.val = { { type = "padding", val = 4 } }
@@ -31,11 +30,9 @@ function M.config()
 	startify.section.mru_cwd.val = { { type = "padding", val = 0 } }
 	-- disable nvim_web_devicons
 	startify.nvim_web_devicons.enabled = false
-	startify.section.bottom_buttons.val = {
-		startify.button("q", "󰅚  Quit", ":qa<CR>"),
-	}
+	startify.section.bottom_buttons.val = {}
 
-	local footer_text = "Pojok Code"
+	local footer_text = "⚡ Neovim loaded "
 	vim.api.nvim_create_autocmd("User", {
 		pattern = "LazyVimStarted",
 		desc = "Add Alpha dashboard footer",
@@ -47,7 +44,19 @@ function M.config()
 				{
 					type = "text",
 					val = {
-						footer_text .. " " .. stats.loaded .. "/" .. stats.count .. " plugins  in " .. ms .. "ms",
+						"───────────────────────────────────────────",
+					},
+				},
+				{
+					type = "text",
+					val = {
+						footer_text .. stats.loaded .. "/" .. stats.count .. " plugins  in " .. ms .. "ms",
+					},
+				},
+				{
+					type = "text",
+					val = {
+						"───────────────────────────────────────────",
 					},
 				},
 			}
