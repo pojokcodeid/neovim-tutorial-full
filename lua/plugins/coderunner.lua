@@ -1,17 +1,33 @@
+--typescript = "deno run",
+-- cpp="gcc $fileName -lstdc++ -o $fileNameWithoutExt && $fileNameWithoutExt"
+local pyrun = "python -u"
+if vim.fn.has("win32") == 0 then
+	pyrun = "python3 -u"
+end
+local rfile = {
+	java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+	python = pyrun,
+	typescript = "ts-node $dir/$fileName",
+	rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
+	cpp = "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
+	scss = "sass $dir/$fileName $dir/$fileNameWithoutExt.css",
+	javascript = 'node "$dir/$fileName"',
+}
+
 return {
 	"CRAG666/code_runner.nvim",
-	event = "VeryLazy",
+	lazy = true,
 	cmd = { "RunCode", "RunFile", "RunProject", "RunClose" },
-	opts = function(_, opts)
-		opts.filetype = opts.filetype or {}
-		opts.mode = "float"
-		opts.focus = true
-		opts.startinsert = true
-		opts.term = {
+	opts = {
+		filetype = rfile,
+		mode = "float",
+		focus = true,
+		startinsert = true,
+		term = {
 			position = "bot",
 			size = 50,
-		}
-		opts.float = {
+		},
+		float = {
 			close_key = "<ESC>",
 			border = "rounded",
 			height = 0.8,
@@ -21,16 +37,8 @@ return {
 			border_hl = "FloatBorder",
 			float_hl = "Normal",
 			blend = 0,
-		}
-		vim.list_extend(opts.filetype, {
-			-- add run code hires
-			java = {
-				"cd $dir &&",
-				"javac $fileName &&",
-				"java $fileNameWithoutExt",
-			},
-		})
-	end,
+		},
+	},
 	config = function(_, opts)
 		require("code_runner").setup(opts)
 	end,

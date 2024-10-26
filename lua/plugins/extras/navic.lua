@@ -1,6 +1,11 @@
 local M = {
 	"SmiteshP/nvim-navic",
 	event = "VeryLazy",
+	dependencies = {
+		"LunarVim/breadcrumbs.nvim",
+		opts = {},
+		config = true,
+	},
 }
 
 function M.config()
