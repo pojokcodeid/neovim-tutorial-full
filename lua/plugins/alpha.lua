@@ -32,7 +32,6 @@ function M.config()
 	startify.nvim_web_devicons.enabled = false
 	startify.section.bottom_buttons.val = {}
 
-	local footer_text = "⚡ Neovim loaded "
 	vim.api.nvim_create_autocmd("User", {
 		pattern = "LazyVimStarted",
 		desc = "Add Alpha dashboard footer",
@@ -40,24 +39,21 @@ function M.config()
 		callback = function()
 			local stats = require("lazy").stats()
 			local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
+			-- stylua: ignore
 			startify.section.footer.val = {
 				{
 					type = "text",
-					val = {
-						"───────────────────────────────────────────",
-					},
+					val = {"───────────────────────────────────────────"},
 				},
 				{
 					type = "text",
 					val = {
-						footer_text .. stats.loaded .. "/" .. stats.count .. " plugins  in " .. ms .. "ms",
+						"⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins  in " .. ms .. "ms",
 					},
 				},
 				{
 					type = "text",
-					val = {
-						"───────────────────────────────────────────",
-					},
+					val = {"───────────────────────────────────────────"},
 				},
 			}
 			pcall(vim.cmd.AlphaRedraw)
