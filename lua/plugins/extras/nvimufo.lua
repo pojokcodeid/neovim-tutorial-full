@@ -1,13 +1,10 @@
-local M = {
-	"kevinhwang91/nvim-ufo",
-	event = "VeryLazy",
-	dependencies = {
-		"kevinhwang91/promise-async",
-		"luukvbaal/statuscol.nvim",
-	},
+local M = { "kevinhwang91/nvim-ufo" }
+M.event = "VeryLazy"
+M.dependencies = {
+	"kevinhwang91/promise-async",
+	"luukvbaal/statuscol.nvim",
 }
-
-function M.config()
+M.config = function()
 	local builtin = require("statuscol.builtin")
 	local cfg = {
 		setopt = true,
