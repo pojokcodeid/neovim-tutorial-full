@@ -2,7 +2,7 @@ return {
 	"sharpchen/Eva-Theme.nvim",
 	lazy = false,
 	priority = 1000,
-	build = "EvaCompile",
+	build = ":EvaCompile",
 	opts = {
 		override_highlight = {
 			dark = {
