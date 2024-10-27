@@ -24,6 +24,7 @@ for _, mode in ipairs({ "i", "v", "n", "x" }) do
 end
 -- duplicate line visual block
 keymap("x", "<S-Down>", ":'<,'>t'><cr>", opts)
+keymap("x", "<S-Up>", ":'<,'>t-1<cr>", opts)
 -- move text up and down
 keymap("x", "<A-Down>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
