@@ -13,7 +13,7 @@
 -- . ./my-virtual-env/bin/activate
 -- sudo apt-get install python3-pytest
 
--- DAP Use default config for linux
+-- DAP untuik linux tidak perlu tambahan pakai defaultnya saja
 -- ini config khusus windows
 local nvim_dap = {
 	"mfussenegger/nvim-dap",
