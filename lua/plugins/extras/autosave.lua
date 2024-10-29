@@ -30,7 +30,8 @@ return {
 			pattern = "AutoSaveWritePost",
 			group = group,
 			callback = function(opts)
-				if opts.data.saved_buffer ~= nil then
+				local ftype = vim.bo.filetype
+				if opts.data.saved_buffer ~= nil and ftype ~= "TelescopePrompt" then
 					local filename = vim.api.nvim_buf_get_name(opts.data.saved_buffer)
 					local is_ok = pcall(require, "notify")
 					if is_ok then
