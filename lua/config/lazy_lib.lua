@@ -29,6 +29,7 @@ require("lazy").setup({
 		{ import = "plugins.extras" },
 		-- config for specific language
 		{ import = "plugins.lang.javascript" },
+		{ import = "plugins.lang.python" },
 	},
 
 	ui = {
