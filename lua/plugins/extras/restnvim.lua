@@ -1,11 +1,21 @@
+-- install luarock
+-- sudo apt-get install luarocks lua5.4 (untuk linux)
+-- https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Windows
+
+-- manual penggunaan
+-- https://www.jetbrains.com/help/idea/exploring-http-syntax.html
 return {
 	"rest-nvim/rest.nvim",
 	-- NOTE: Follow https://github.com/rest-nvim/rest.nvim/issues/306
-	commit = "91badd46c60df6bd9800c809056af2d80d33da4c",
+	-- commit = "91badd46c60df6bd9800c809056af2d80d33da4c",
 	event = "VeryLazy",
 	dependencies = {
-		"nvim-lua/plenary.nvim",
-		event = "VeryLazy",
+		{
+			"nvim-treesitter/nvim-treesitter",
+			opts = function(_, opts)
+				vim.list_extend(opts.ensure_installed, { "http" })
+			end,
+		},
 	},
 	config = function()
 		require("rest-nvim").setup()
@@ -23,16 +33,12 @@ return {
 	keys = {
 		{
 			"<Leader>rh",
-			function()
-				require("rest-nvim").run()
-			end,
+			"<cmd>Rest run<cr>",
 			desc = "Run http request under cursor",
 		},
 		{
 			"<Leader>rH",
-			function()
-				require("rest-nvim").last()
-			end,
+			"<cmd>Rest last<cr>",
 			desc = "Run last http request",
 		},
 	},

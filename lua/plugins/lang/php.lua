@@ -1,3 +1,10 @@
+local function is_laravel_project()
+	return vim.fn.isdirectory("app") == 1
+		and vim.fn.isdirectory("bootstrap") == 1
+		and vim.fn.isdirectory("config") == 1
+		and vim.fn.isdirectory("database") == 1
+		and vim.fn.isdirectory("routes") == 1
+end
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -184,6 +191,7 @@ return {
 	},
 	{
 		"adalessa/laravel.nvim",
+		enabled = is_laravel_project(), -- pastikan membuka laravel project
 		dependencies = {
 			"tpope/vim-dotenv",
 			"nvim-telescope/telescope.nvim",
