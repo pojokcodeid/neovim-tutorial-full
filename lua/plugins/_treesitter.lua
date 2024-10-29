@@ -1,5 +1,5 @@
 return {
-	{ "nvim-lua/plenary.nvim" },
+	{ "nvim-lua/plenary.nvim", event = "VeryLazy" },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufRead", "VeryLazy" },

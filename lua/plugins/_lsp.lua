@@ -3,7 +3,7 @@ return {
 		"pojokcodeid/auto-lsp.nvim",
 		event = { "VeryLazy", "BufReadPre", "BufNewFile", "BufRead" },
 		dependencies = {
-			{ "williamboman/mason-lspconfig.nvim" },
+			{ "williamboman/mason-lspconfig.nvim", lazy = true },
 			{
 				"neovim/nvim-lspconfig",
 				lazy = true,

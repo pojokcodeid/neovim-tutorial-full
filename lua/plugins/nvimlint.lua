@@ -2,6 +2,7 @@ return {
 	"pojokcodeid/auto-lint.nvim",
 	dependencies = {
 		"mfussenegger/nvim-lint",
+		event = "VeryLazy",
 	},
 	event = "VeryLazy",
 	opts = function(_, opts)
