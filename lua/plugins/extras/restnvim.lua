@@ -9,6 +9,7 @@ return {
 	-- NOTE: Follow https://github.com/rest-nvim/rest.nvim/issues/306
 	-- commit = "91badd46c60df6bd9800c809056af2d80d33da4c",
 	event = "VeryLazy",
+	enabled = vim.fn.executable("luarocks") == 1,
 	dependencies = {
 		{
 			"nvim-treesitter/nvim-treesitter",
