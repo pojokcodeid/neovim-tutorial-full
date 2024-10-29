@@ -41,20 +41,20 @@ function M.config()
 			local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
 			-- stylua: ignore
 			startify.section.footer.val = {
-				{
-					type = "text",
-					val = {"───────────────────────────────────────────"},
-				},
+				-- {
+				-- 	type = "text",
+				-- 	val = {"───────────────────────────────────────────"},
+				-- },
 				{
 					type = "text",
 					val = {
 						"⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins  in " .. ms .. "ms",
 					},
 				},
-				{
-					type = "text",
-					val = {"───────────────────────────────────────────"},
-				},
+				-- {
+				-- 	type = "text",
+				-- 	val = {"───────────────────────────────────────────"},
+				-- },
 			}
 			pcall(vim.cmd.AlphaRedraw)
 		end,
