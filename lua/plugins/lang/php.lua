@@ -5,6 +5,12 @@ local function is_laravel_project()
 		and vim.fn.isdirectory("database") == 1
 		and vim.fn.isdirectory("routes") == 1
 end
+-- check parser php
+-- local is_config = true
+-- local parsers = require("nvim-treesitter.parsers").get_parser_configs()
+-- if parsers.php ~= nil then
+-- 	is_config = false
+-- end
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -189,6 +195,8 @@ return {
 			require("lint").linters_by_ft = opts.linters_by_ft
 		end,
 	},
+	-- untuk case tertentu install ini
+	-- npm install -g tree-sitter-cli
 	{
 		"adalessa/laravel.nvim",
 		enabled = is_laravel_project(), -- pastikan membuka laravel project

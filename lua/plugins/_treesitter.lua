@@ -14,6 +14,7 @@ return {
 			"TSUpdateSync",
 			"TSUninstall",
 			"TSUninstallInfo",
+			"TSInstallFromGrammar",
 		},
 		opts = function()
 			return {
