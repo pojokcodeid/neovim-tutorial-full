@@ -76,3 +76,33 @@ api.nvim_create_autocmd("BufWritePre", {
 		MkNonExDir(vim.fn.expand("<afile>"), vim.fn.expand("<abuf>")) -- Memanggil fungsi untuk membuat direktori yang tidak ada sebelum menyimpan buffer
 	end,
 })
+
+-- for fix error last close buffer
+vim.api.nvim_create_autocmd({ "QuitPre" }, {
+	callback = function()
+		vim.cmd("NvimTreeClose")
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "help", "alpha", "dashboard", "NvimTree", "Trouble", "lazy", "mason", "neotest-summary" },
+	callback = function()
+		vim.b.miniindentscope_disable = true
+	end,
+})
+
+vim.filetype.add({
+	pattern = {
+		[".*%.blade%.php"] = "blade",
+	},
+})
+
+-- config cursor
+vim.opt.guicursor = {
+	"n-v:block", -- Normal, Visual, Command mode: block cursor
+	"i-ci-ve-c:ver25", -- Insert, Command-line Insert, Visual mode: vertical bar cursor
+	"r-cr:hor20", -- Replace, Command-line Replace mode: horizontal bar cursor
+	"o:hor50", -- Operator-pending mode: horizontal bar cursor
+	"a:blinkwait700-blinkoff400-blinkon250", -- Blinking settings
+	"sm:block-blinkwait175-blinkoff150-blinkon175", -- Select mode: block cursor with blinking
+}

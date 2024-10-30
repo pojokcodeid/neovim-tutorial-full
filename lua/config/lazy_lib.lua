@@ -31,7 +31,8 @@ require("lazy").setup({
 		-- { import = "plugins.lang.javascript" },
 		-- { import = "plugins.lang.python" },
 		-- { import = "plugins.lang.cpp" },
-		{ import = "plugins.lang.php" },
+		-- { import = "plugins.lang.php" },
+		{ import = "plugins.lang.prisma" },
 	},
 
 	ui = {
