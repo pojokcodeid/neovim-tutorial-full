@@ -33,7 +33,7 @@ return {
 							-- border = "none",
 							border = icons.Border,
 							icons = {
-								package_pending = icons.DotCircle,
+								package_pending = icons.Pending,
 								package_installed = icons.CheckCircle,
 								package_uninstalled = icons.BlankCircle,
 							},

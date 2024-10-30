@@ -35,7 +35,8 @@ require("lazy").setup({
 		-- { import = "plugins.lang.php" },
 		-- { import = "plugins.lang.prisma" },
 		-- { import = "plugins.lang.tailwind" },
-		{ import = "plugins.lang.deno" },
+		-- { import = "plugins.lang.deno" },
+		{ import = "plugins.lang.database" },
 	},
 
 	ui = {
