@@ -15,6 +15,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+local icons = require("user.icons").ui
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
@@ -44,6 +45,12 @@ require("lazy").setup({
 		throttle = 40, -- Menyeting throttle
 		custom_keys = {
 			["<localleader>l"] = false, -- Menonaktifkan kunci lokal leader l
+		},
+		icons = {
+			ft = icons.ft,
+			lazy = icons.Bell .. " ",
+			loaded = icons.CheckCircle,
+			not_loaded = icons.not_loaded,
 		},
 	},
 	change_detection = { enabled = false, notify = false }, -- Nonaktifkan deteksi perubahan

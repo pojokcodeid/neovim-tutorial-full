@@ -141,6 +141,7 @@ return {
 		TriangleShortArrowRight = "",
 		TriangleShortArrowUp = "",
 		Neovim = "",
+		Pending = " ",
 		BlankCircle = " ",
 		CheckCircle = " ",
 		DotCircle = " ",
