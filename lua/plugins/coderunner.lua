@@ -48,6 +48,5 @@ return {
 		{ "<leader>rr", "<cmd>RunCode<CR>", desc = "Run Code", mode = "n" },
 		{ "<leader>rf", "<cmd>RunFile<CR>", desc = "Run File", mode = "n" },
 		{ "<leader>rp", "<cmd>RunProject<CR>", desc = "Run Project", mode = "n" },
-		{ "<leader>rg", "<cmd>terminal<cr>gradle run<cr>", desc = "Run Gradle", mode = "n" },
 	},
 }

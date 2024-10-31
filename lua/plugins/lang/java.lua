@@ -260,6 +260,7 @@ M = {
         { "<leader>To", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show Output" },
         { "<Leader>TO", function() require("neotest").output_panel.toggle() end, desc = "Toggle Output Panel" },
         { "<Leader>TS", function() require("neotest").run.stop() end, desc = "Stop" },
+      	{ "<leader>rg", "<cmd>terminal<cr>gradle run<cr>", desc = "Run Gradle", mode = "n" },
       },
 	},
 	{
