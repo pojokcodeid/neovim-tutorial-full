@@ -31,7 +31,11 @@ return {
 			group = group,
 			callback = function(opts)
 				local ftype = vim.bo.filetype
-				if opts.data.saved_buffer ~= nil and ftype ~= "TelescopePrompt" then
+				if
+					opts.data.saved_buffer ~= nil
+					and ftype ~= "TelescopePrompt"
+					and not substring(tostring(ftype), "dap")
+				then
 					local filename = vim.api.nvim_buf_get_name(opts.data.saved_buffer)
 					local is_ok = pcall(require, "notify")
 					if is_ok then
