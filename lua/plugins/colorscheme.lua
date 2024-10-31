@@ -13,6 +13,7 @@ return {
 	},
 	config = function(_, opts)
 		require("Eva-Theme").setup(opts)
-		vim.cmd([[colorscheme Eva-Dark]])
+		local colorscheme = "Eva-Dark"
+		vim.cmd("colorscheme " .. colorscheme)
 	end,
 }
