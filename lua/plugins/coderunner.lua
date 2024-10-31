@@ -12,6 +12,7 @@ local rfile = {
 	cpp = "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
 	scss = "sass $dir/$fileName $dir/$fileNameWithoutExt.css",
 	javascript = 'node "$dir/$fileName"',
+	go = "go run .",
 }
 
 return {

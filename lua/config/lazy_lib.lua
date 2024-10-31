@@ -36,7 +36,8 @@ require("lazy").setup({
 		-- { import = "plugins.lang.prisma" },
 		-- { import = "plugins.lang.tailwind" },
 		-- { import = "plugins.lang.deno" },
-		{ import = "plugins.lang.database" },
+		-- { import = "plugins.lang.database" },
+		{ import = "plugins.lang.golang" },
 	},
 
 	ui = {
