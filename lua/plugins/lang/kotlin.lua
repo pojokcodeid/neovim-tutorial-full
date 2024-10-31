@@ -62,11 +62,13 @@ return {
 					-- it has to correspond to the class file located at `build/classes/`
 					-- and of course you have to build before you debug
 					mainClass = function()
-						local root = vim.fs.find("src", { path = vim.uv.cwd(), upward = true, stop = vim.env.HOME })[1]
-							or ""
+						local root = vim.uv.cwd()
 						local fname = vim.api.nvim_buf_get_name(0)
+						fname = fname:gsub(root, "")
+						fname = fname:gsub("/app/src/main/kotlin/", "")
+						fname = fname:gsub(".kt", "Kt"):gsub("/", ".")
 						-- src/main/kotlin/websearch/Main.kt -> websearch.MainKt
-						return fname:gsub(root, ""):gsub("main/kotlin/", ""):gsub(".kt", "Kt"):gsub("/", "."):sub(2, -1)
+						return fname
 					end,
 					projectRoot = "${workspaceFolder}",
 					jsonLogFile = "",
