@@ -20,4 +20,10 @@ return {
 			vim.list_extend(opts.ensure_installed, { "angularls", "ts_ls" })
 		end,
 	},
+	{
+		"williamboman/mason.nvim",
+		opts = {
+			ensure_installed = { "prettier" },
+		},
+	},
 }
