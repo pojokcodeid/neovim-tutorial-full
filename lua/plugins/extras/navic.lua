@@ -9,9 +9,12 @@ local M = {
 }
 
 function M.config()
-	local icons = require("user.icons")
+	local icons = require("user.icons").kind
+	for key, value in pairs(icons) do
+		icons[key] = value .. " "
+	end
 	require("nvim-navic").setup({
-		icons = icons.kind,
+		icons = icons,
 		lsp = {
 			auto_attach = false,
 			preference = nil,
