@@ -83,18 +83,41 @@ return {
 					{ name = "path" },
 					{ name = "nvim_lua" },
 				}),
+				-- formatting = {
+				-- 	fields = { "kind", "abbr", "menu" },
+				-- 	format = function(entry, vim_item)
+				-- 		vim_item.kind = string.format("%s", require("user.icons")["kind"][vim_item.kind])
+				-- 		vim_item.menu = ({
+				-- 			nvim_lsp = "(LSP)",
+				-- 			luasnip = "(Snippet)",
+				-- 			buffer = "(Buffer)",
+				-- 			path = "(Path)",
+				-- 			codeium = "(Codeium)",
+				-- 		})[entry.source.name]
+				-- 		return vim_item
+				-- 	end,
+				-- },
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
-					format = function(entry, vim_item)
-						vim_item.kind = string.format("%s", require("user.icons")["kind"][vim_item.kind])
-						vim_item.menu = ({
-							nvim_lsp = "(LSP)",
-							luasnip = "(Snippet)",
-							buffer = "(Buffer)",
-							path = "(Path)",
-							codeium = "(Codeium)",
-						})[entry.source.name]
-						return vim_item
+					format = function(entry, item)
+						local icons = require("user.icons").kind
+						if icons[item.kind] then
+							-- item.kind = icons[item.kind] .. item.kind
+							item.kind = icons[item.kind]
+						end
+
+						local widths = {
+							abbr = vim.g.cmp_widths and vim.g.cmp_widths.abbr or 40,
+							menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 30,
+						}
+
+						for key, width in pairs(widths) do
+							if item[key] and vim.fn.strdisplaywidth(item[key]) > width then
+								item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. "…"
+							end
+						end
+
+						return item
 					end,
 				},
 				window = {
