@@ -39,7 +39,7 @@ require("lazy").setup({
 		-- { import = "plugins.lang.database" },
 		-- { import = "plugins.lang.golang" },
 		-- { import = "plugins.lang.java" },
-		-- { import = "plugins.lang.kotlin" },
+		{ import = "plugins.lang.kotlin" },
 		-- { import = "plugins.lang.rust" },
 	},
 

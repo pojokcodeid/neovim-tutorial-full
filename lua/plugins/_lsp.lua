@@ -26,33 +26,34 @@ return {
 					"MasonUninstallAll",
 					"MasonLog",
 				},
-				opts = function()
+				opts = function(_, opts)
 					local icons = require("user.icons").ui
-					return {
-						ui = {
-							-- border = "none",
-							border = icons.Border,
-							icons = {
-								package_pending = icons.Pending,
-								package_installed = icons.CheckCircle,
-								package_uninstalled = icons.BlankCircle,
-							},
-							keymaps = {
-								toggle_server_expand = "<CR>",
-								install_server = "i",
-								update_server = "u",
-								check_server_version = "c",
-								update_all_servers = "U",
-								check_outdated_servers = "C",
-								uninstall_server = "X",
-							},
+					opts.ensure_installed = opts.ensure_installed or {}
+					opts.ui = {
+						-- border = "none",
+						border = icons.Border,
+						icons = {
+							package_pending = icons.Pending,
+							package_installed = icons.CheckCircle,
+							package_uninstalled = icons.BlankCircle,
 						},
-						log_level = vim.log.levels.INFO,
-						max_concurrent_installers = 4,
+						keymaps = {
+							toggle_server_expand = "<CR>",
+							install_server = "i",
+							update_server = "u",
+							check_server_version = "c",
+							update_all_servers = "U",
+							check_outdated_servers = "C",
+							uninstall_server = "X",
+						},
 					}
+					opts.log_level = vim.log.levels.INFO
+					opts.max_concurrent_installers = 4
+					return opts
 				end,
 				config = function(_, opts)
 					require("mason").setup(opts)
+					require("auto-lsp.masoncfg").ensure_installed(opts.ensure_installed)
 				end,
 			},
 		},
@@ -61,7 +62,7 @@ return {
 			opts.ensure_installed = opts.ensure_installed or {}
 			opts.automatic_installation = true
 			vim.list_extend(opts.ensure_installed, { "lua_ls" })
-			opts.format_on_save = false -- config format on save none-ls
+			opts.format_on_save = false -- if use none-ls set true
 			opts.virtual_text = false
 			opts.timeout_ms = 5000
 			return opts

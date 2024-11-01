@@ -34,6 +34,12 @@ return {
 		end,
 	},
 	{
+		"mason.nvim",
+		opts = {
+			ensure_installed = { "kotlin-debug-adapter" },
+		},
+	},
+	{
 		"rcarriga/nvim-dap-ui",
 		lazy = true,
 		event = "BufRead",
@@ -42,7 +48,6 @@ return {
 			{ "nvim-neotest/nvim-nio", lazy = true },
 		},
 		opts = function()
-			require("user.utils.masoncfg").try_install("kotlin-debug-adapter")
 			require("user.dapui")
 			local dap = require("dap")
 			if not dap.adapters.kotlin then
