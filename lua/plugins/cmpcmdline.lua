@@ -6,7 +6,7 @@ return {
 		dependencies = {
 			{ "MunifTanjim/nui.nvim" },
 		},
-		event = "VeryLazy",
+		event = "CmdlineEnter",
 		opts = {
 			messages = {
 				enabled = false,
