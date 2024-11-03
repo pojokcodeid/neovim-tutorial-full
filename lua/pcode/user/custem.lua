@@ -47,16 +47,21 @@ M.extras = {
 }
 -- activate config themes
 M.themes = {
-	-- note: open comment only one
+	-- note: open remark only one
 	-- **:: Eva Theme ::** --
-	-- evatheme = "Eva-Dark",
+	evatheme = "Eva-Dark",
 	-- evatheme = "Eva-Dark-Italic",
 	-- evatheme = "Eva-Dark-Bold",
 	-- evatheme = "Eva-Light",
 	--
 	-- **:: Dracula Theme ::** --
 	-- dracula = "dracula",
-	dracula = "dracula-soft",
+	-- dracula = "dracula-soft",
+	--
+	-- **:: Onedarkpro Theme ::** --
+	-- onedarkpro = "onedark",
+	-- onedarkpro = "onedark_vivid",
+	-- onedarkpro = "onedark_dark",
 }
 
 return M
