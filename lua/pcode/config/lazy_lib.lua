@@ -21,19 +21,22 @@ local icons = require("pcode.user.icons").ui
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-
+-- initialisasi plugins
 local importdata = {
 	{ import = "pcode.plugins" },
 }
+-- load theme
 local theme = require("pcode.user.custem").themes
-local extras = require("pcode.user.custem").extras
-local lang = require("pcode.user.custem").lang
 for key, _ in pairs(theme) do
 	table.insert(importdata, { import = "pcode.plugins.theme." .. key })
 end
+-- load extras plugins
+local extras = require("pcode.user.custem").extras
 for _, value in pairs(extras) do
 	table.insert(importdata, { import = "pcode.plugins.extras." .. value })
 end
+-- load language config
+local lang = require("pcode.user.custem").lang
 for _, value in pairs(lang) do
 	table.insert(importdata, { import = "pcode.plugins.lang." .. value })
 end

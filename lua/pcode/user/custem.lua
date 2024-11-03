@@ -1,5 +1,6 @@
 local M = {}
 
+-- activate config spesific languages
 M.lang = {
 	-- "angular",
 	-- "cpp",
@@ -16,7 +17,7 @@ M.lang = {
 	-- "tust",
 	-- "tailwind",
 }
-
+-- activate config extras
 M.extras = {
 	"autosave",
 	"bigfiles",
@@ -44,7 +45,7 @@ M.extras = {
 	"yanky",
 	"zenmode",
 }
-
+-- activate config themes
 M.themes = {
 	-- note: open comment only one
 	-- **:: Eva Theme ::** --

@@ -31,4 +31,15 @@ _G.all_trim = function(s)
 	return s:match("^%s*(.-)%s*$")
 end
 
+local function safeRequire(module)
+	local ok, result = pcall(require, module)
+	if not ok then
+		print("Error loading module: " .. module)
+	end
+	return result
+end
+
+safeRequire("pcode.user.options")
+safeRequire("pcode.user.autocmd")
+safeRequire("pcode.user.keymaps")
 return {}
