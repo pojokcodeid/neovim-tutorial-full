@@ -64,4 +64,6 @@ M.themes = {
 	-- onedarkpro = "onedark_dark",
 }
 
+M.transparent = true
+
 return M

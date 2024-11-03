@@ -19,10 +19,12 @@ return {
 		max_width = function()
 			return math.floor(vim.o.columns * 0.75)
 		end,
+		render = "wrapped-compact",
+		-- background_colour = "#00000000",
 	},
-	config = function()
+	config = function(_, opts)
 		local notify = require("notify")
-		notify.setup({ render = "wrapped-compact" })
+		notify.setup(opts)
 		vim.notify = notify.notify
 	end,
 }
