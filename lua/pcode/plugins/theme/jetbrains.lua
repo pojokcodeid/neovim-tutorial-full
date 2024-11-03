@@ -35,7 +35,7 @@ return {
 				hi(0, "TelescopeResultsTitle", { bg = colors.olive_green, fg = colors.very_dark_gray })
 			end,
 		})
-		local colorscheme = require("pcode.user.custem").themes.jetbrains or "darcula-dark"
+		local colorscheme = pcode.themes.jetbrains or "darcula-dark"
 		vim.cmd("colorscheme " .. colorscheme)
 	end,
 }

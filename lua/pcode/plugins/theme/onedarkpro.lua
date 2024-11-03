@@ -118,7 +118,7 @@ return {
 				NonText = { bg = "NONE", fg = "#3E4450" },
 			},
 		})
-		local colorscheme = require("pcode.user.custem").themes.onedarkpro or "onedark"
+		local colorscheme = pcode.themes.onedarkpro or "onedark"
 		vim.cmd("colorscheme " .. colorscheme)
 	end,
 }

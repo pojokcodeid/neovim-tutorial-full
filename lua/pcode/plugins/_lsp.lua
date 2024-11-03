@@ -62,7 +62,7 @@ return {
 			opts.ensure_installed = opts.ensure_installed or {}
 			opts.automatic_installation = true
 			vim.list_extend(opts.ensure_installed, { "lua_ls" })
-			opts.format_on_save = false -- if use none-ls set true
+			opts.format_on_save = true -- if use none-ls set true
 			opts.virtual_text = true
 			opts.timeout_ms = 5000
 			return opts

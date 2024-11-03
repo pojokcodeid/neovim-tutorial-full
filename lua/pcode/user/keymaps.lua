@@ -44,3 +44,4 @@ keymap("n", "<C-/>", "<esc><cmd>lua require('Comment.api').toggle.linewise.curre
 
 -- close windows
 keymap("n", "q", "<cmd>q<cr>", opts)
+keymap("n", "f", "<cmd>NvimTreeFindFileToggle<cr><cr><Up>", opts)

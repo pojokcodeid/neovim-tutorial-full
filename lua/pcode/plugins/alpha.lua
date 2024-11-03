@@ -3,17 +3,20 @@ local M = {
 	event = "VimEnter",
 }
 
-function M.config()
-	local alpha = require("alpha")
-	local startify = require("alpha.themes.startify")
-	local dash_model = {
+M.opts = {
+	dash_model = {
 		[[                _      __                __    ]],
 		[[    ___ ___    (____  / /__  _______ ___/ ___  ]],
 		[[   / _ / _ \  / / _ \/  '_/ / __/ _ / _  / -_) ]],
 		[[  / .__\_____/ /\___/_/\_\  \__/\___\_,_/\__/  ]],
 		[[ /_/      |___/                                ]],
-	}
-	startify.section.header.val = dash_model
+	},
+}
+
+function M.config(_, opts)
+	local alpha = require("alpha")
+	local startify = require("alpha.themes.startify")
+	startify.section.header.val = pcode.dashboard or opts.dash_model
 	startify.section.top_buttons.val = {
 		startify.button("F", "󰈞  Find file", ":Telescope find_files <CR>"),
 		startify.button("e", "  New file", ":ene <BAR> startinsert <CR>"),

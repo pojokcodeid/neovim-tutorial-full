@@ -3,12 +3,13 @@ return {
 		"pojokcodeid/auto-lualine.nvim",
 		event = { "InsertEnter", "BufRead", "BufNewFile" },
 		dependencies = { "nvim-lualine/lualine.nvim" },
-		config = function()
-			require("auto-lualine").setup({
-				setColor = "Eva-Dark",
-				setOption = "roundedall",
-				setMode = 5,
-			})
+		opts = {
+			setColor = "auto",
+			setOption = "roundedall",
+			setMode = 5,
+		},
+		config = function(_, opts)
+			require("auto-lualine").setup(opts)
 		end,
 	},
 }

@@ -26,25 +26,27 @@ local importdata = {
 	{ import = "pcode.plugins" },
 }
 -- load theme
-local theme = require("pcode.user.custem").themes or {}
+local theme = pcode.themes or {}
 for key, _ in pairs(theme) do
 	table.insert(importdata, { import = "pcode.plugins.theme." .. key })
 end
 -- load extras plugins
-local extras = require("pcode.user.custem").extras or {}
+local extras = pcode.extras or {}
 for _, value in pairs(extras) do
 	table.insert(importdata, { import = "pcode.plugins.extras." .. value })
 end
 -- load language config
-local lang = require("pcode.user.custem").lang or {}
+local lang = pcode.lang or {}
 for _, value in pairs(lang) do
 	table.insert(importdata, { import = "pcode.plugins.lang." .. value })
 end
 -- load transparant config
-local transparant = require("pcode.user.custem").transparent or false
+local transparant = pcode.transparent or false
 if transparant then
 	table.insert(importdata, { import = "pcode.plugins.extras.transparent" })
 end
+-- add overide path
+table.insert(importdata, { import = "pcode.user.custom" })
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = importdata,

@@ -1,7 +1,5 @@
-local M = {}
-
 -- activate config spesific languages
-M.lang = {
+pcode.lang = {
 	-- "angular",
 	-- "cpp",
 	-- "sql",
@@ -18,7 +16,7 @@ M.lang = {
 	-- "tailwind",
 }
 -- activate config extras
-M.extras = {
+pcode.extras = {
 	"autosave",
 	"bigfiles",
 	"codeium",
@@ -46,7 +44,7 @@ M.extras = {
 	"zenmode",
 }
 -- activate config themes
-M.themes = {
+pcode.themes = {
 	-- note: open remark only one
 	-- **:: Eva Theme ::** --
 	evatheme = "Eva-Dark",
@@ -67,6 +65,4 @@ M.themes = {
 	-- jetbrains = "darcula-dark",
 }
 -- activate config transparent_bg
-M.transparent = false
-
-return M
+pcode.transparent = false

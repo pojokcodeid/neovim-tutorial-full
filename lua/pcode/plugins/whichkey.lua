@@ -50,24 +50,25 @@ return {
 			},
 			---@type false | "classic" | "modern" | "helix"
 			preset = "classic",
+			mappings = {
+				{ "<leader>S", "", desc = " 󱑠 Plugins(Lazy)", mode = "n" },
+				{ "<leader>Si", "<cmd>Lazy install<cr>", desc = "Install", mode = "n" },
+				{ "<leader>Ss", "<cmd>Lazy sync<cr>", desc = "Sync", mode = "n" },
+				{ "<leader>SS", "<cmd>Lazy clear<cr>", desc = "Status", mode = "n" },
+				{ "<leader>Sc", "<cmd>Lazy clean<cr>", desc = "Clean", mode = "n" },
+				{ "<leader>Su", "<cmd>Lazy update<cr>", desc = "Update", mode = "n" },
+				{ "<leader>Sp", "<cmd>Lazy profile<cr>", desc = "Profile", mode = "n" },
+				{ "<leader>Sl", "<cmd>Lazy log<cr>", desc = "Log", mode = "n" },
+				{ "<leader>Sd", "<cmd>Lazy debug<cr>", desc = "Debug", mode = "n" },
+				{ "<leader>w", "<cmd>w!<CR>", desc = "󰆓 Save", mode = "n" },
+				{ "<leader>q", "<cmd>q!<CR>", desc = "󰿅 Quit", mode = "n" },
+				{ "<leader>h", "<cmd>nohlsearch<CR>", desc = "󱪿 No Highlight", mode = "n" },
+			},
 		}
 	end,
 	config = function(_, opts)
 		local which_key = require("which-key")
 		which_key.setup(opts)
-		which_key.add({
-			{ "<leader>h", "<cmd>nohlsearch<CR>", desc = "󱪿 No Highlight", mode = "n" },
-			{ "<leader>L", "", desc = " 󱑠 Plugins(Lazy)", mode = "n" },
-			{ "<leader>Li", "<cmd>Lazy install<cr>", desc = "Install", mode = "n" },
-			{ "<leader>Ls", "<cmd>Lazy sync<cr>", desc = "Sync", mode = "n" },
-			{ "<leader>LS", "<cmd>Lazy clear<cr>", desc = "Status", mode = "n" },
-			{ "<leader>Lc", "<cmd>Lazy clean<cr>", desc = "Clean", mode = "n" },
-			{ "<leader>Lu", "<cmd>Lazy update<cr>", desc = "Update", mode = "n" },
-			{ "<leader>Lp", "<cmd>Lazy profile<cr>", desc = "Profile", mode = "n" },
-			{ "<leader>Ll", "<cmd>Lazy log<cr>", desc = "Log", mode = "n" },
-			{ "<leader>Ld", "<cmd>Lazy debug<cr>", desc = "Debug", mode = "n" },
-			{ "<leader>w", "<cmd>w!<CR>", desc = "󰆓 Save", mode = "n" },
-			{ "<leader>q", "<cmd>q!<CR>", desc = "󰿅 Quit", mode = "n" },
-		})
+		which_key.add(opts.mappings)
 	end,
 }

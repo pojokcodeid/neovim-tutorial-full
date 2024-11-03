@@ -44,7 +44,7 @@ return {
 	end,
 	config = function(_, opts)
 		require("Eva-Theme").setup(opts)
-		local colorscheme = require("pcode.user.custem").themes.evatheme or "Eva-Dark"
+		local colorscheme = pcode.themes.evatheme or "Eva-Dark"
 		vim.cmd("colorscheme " .. colorscheme)
 	end,
 }

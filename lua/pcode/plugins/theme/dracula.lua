@@ -53,7 +53,7 @@ return {
 			},
 			transparent_bg = false,
 		})
-		local colorscheme = require("pcode.user.custem").themes.dracula or "dracula"
+		local colorscheme = pcode.themes.dracula or "dracula"
 		vim.cmd("colorscheme " .. colorscheme)
 	end,
 }

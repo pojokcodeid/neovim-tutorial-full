@@ -14,22 +14,26 @@ return {
 		opts.name_maps = opts.name_maps or {}
 		opts.add_new = opts.add_new or {}
 		opts.ignore = opts.ignore or {}
+		opts.format_on_save = opts.format_on_save or true
+		opts.format_timeout_ms = opts.format_timeout_ms or 5000
 	end,
 	config = function(_, opts)
 		require("auto-conform").setup(opts)
 		-- other conform config
 		local conform = require("conform")
-		conform.setup({
-			format_on_save = {
-				lsp_fallback = true,
-				timeout_ms = 5000,
-			},
-		})
-		vim.keymap.set({ "n", "v" }, "<leader>lf", function()
+		if opts.format_on_save then
+			conform.setup({
+				format_on_save = {
+					lsp_fallback = true,
+					timeout_ms = opts.format_timeout_ms or 5000,
+				},
+			})
+		end
+		vim.keymap.set({ "n", "v" }, "<leader>lF", function()
 			conform.format({
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 5000,
+				timeout_ms = opts.format_timeout_ms or 5000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
 	end,
