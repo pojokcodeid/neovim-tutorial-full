@@ -25,8 +25,12 @@ vim.g.maplocalleader = "\\"
 local importdata = {
 	{ import = "pcode.plugins" },
 }
+local theme = require("pcode.user.custem").themes
 local extras = require("pcode.user.custem").extras
 local lang = require("pcode.user.custem").lang
+for key, _ in pairs(theme) do
+	table.insert(importdata, { import = "pcode.plugins.theme." .. key })
+end
 for _, value in pairs(extras) do
 	table.insert(importdata, { import = "pcode.plugins.extras." .. value })
 end

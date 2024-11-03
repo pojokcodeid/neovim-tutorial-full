@@ -45,4 +45,17 @@ M.extras = {
 	"zenmode",
 }
 
+M.themes = {
+	-- note: open comment only one
+	-- **:: Eva Theme ::** --
+	-- evatheme = "Eva-Dark",
+	-- evatheme = "Eva-Dark-Italic",
+	-- evatheme = "Eva-Dark-Bold",
+	-- evatheme = "Eva-Light",
+	--
+	-- **:: Dracula Theme ::** --
+	-- dracula = "dracula",
+	dracula = "dracula-soft",
+}
+
 return M
