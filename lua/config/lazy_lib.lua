@@ -22,29 +22,20 @@ local icons = require("user.icons").ui
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+local importdata = {
+	{ import = "plugins" },
+}
+local extras = require("user.custem").extras
+local lang = require("user.custem").lang
+for _, value in pairs(extras) do
+	table.insert(importdata, { import = "plugins.extras." .. value })
+end
+for _, value in pairs(lang) do
+	table.insert(importdata, { import = "plugins.lang." .. value })
+end
 -- Setup lazy.nvim
 require("lazy").setup({
-	spec = {
-		-- import your plugins
-		{ import = "plugins" },
-		{ import = "plugins.extras" },
-		-- config for specific language
-		-- { import = "plugins.lang.javascript" },
-		-- { import = "plugins.lang.python" },
-		-- { import = "plugins.lang.cpp" },
-		-- { import = "plugins.lang.php" },
-		-- { import = "plugins.lang.prisma" },
-		-- { import = "plugins.lang.tailwind" },
-		-- { import = "plugins.lang.deno" },
-		-- { import = "plugins.lang.database" },
-		-- { import = "plugins.lang.golang" },
-		-- { import = "plugins.lang.java" },
-		-- { import = "plugins.lang.kotlin" },
-		-- { import = "plugins.lang.rust" },
-		-- { import = "plugins.lang.markdown" },
-		-- { import = "plugins.lang.angular" },
-	},
-
+	spec = importdata,
 	ui = {
 		backdrop = 100, -- Menyeting backdrop UI
 		border = "rounded", -- Mengatur border UI ke rounded
