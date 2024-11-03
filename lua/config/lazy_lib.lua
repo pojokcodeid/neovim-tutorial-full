@@ -42,7 +42,7 @@ require("lazy").setup({
 		-- { import = "plugins.lang.kotlin" },
 		-- { import = "plugins.lang.rust" },
 		-- { import = "plugins.lang.markdown" },
-		{ import = "plugins.lang.angular" },
+		-- { import = "plugins.lang.angular" },
 	},
 
 	ui = {

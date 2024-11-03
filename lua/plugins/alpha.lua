@@ -21,7 +21,7 @@ function M.config()
 		startify.button("r", "󰦛  Recently used files", ":Telescope oldfiles <CR>"),
 		startify.button("t", "󰊄  Find text", ":Telescope live_grep <CR>"),
 		startify.button("c", "  Configuration", ":e $MYVIMRC <CR>"),
-		startify.button("z", "󰒲  Lazy", ":Lazy<CR>"),
+		startify.button("L", "󰒲  Lazy", ":Lazy<CR>"),
 		startify.button("q", "󰅚  Quit", ":qa<CR>"),
 	}
 	-- disable MRU
