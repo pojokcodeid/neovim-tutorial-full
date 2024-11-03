@@ -27,7 +27,7 @@ return {
 					"MasonLog",
 				},
 				opts = function(_, opts)
-					local icons = require("user.icons").ui
+					local icons = require("pcode.user.icons").ui
 					opts.ensure_installed = opts.ensure_installed or {}
 					opts.ui = {
 						-- border = "none",

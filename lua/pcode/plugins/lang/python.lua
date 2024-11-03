@@ -45,7 +45,7 @@ local nvim_dap = {
 		dap_python.setup(debugpy_path)
 		dap_python.default_port = 38000
 
-		require("user.dapui")
+		require("pcode.user.dapui")
 	end,
 	keys = {
 		{ "<leader>d", "", desc = "  Debug" },

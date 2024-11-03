@@ -116,7 +116,7 @@ return {
 			})
 			local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
 			local debugrs_path = mason_path .. "packages/codelldb/extension/adapter/codelldb"
-			require("user.dapui")
+			require("pcode.user.dapui")
 			local dap = require("dap")
 			dap.adapters.codelldb = {
 				type = "server",

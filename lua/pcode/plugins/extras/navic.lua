@@ -9,7 +9,7 @@ local M = {
 }
 
 function M.config()
-	local icons = require("user.icons").kind
+	local icons = require("pcode.user.icons").kind
 	for key, value in pairs(icons) do
 		icons[key] = value .. " "
 	end

@@ -48,7 +48,7 @@ return {
 			{ "nvim-neotest/nvim-nio", lazy = true },
 		},
 		opts = function()
-			require("user.dapui")
+			require("pcode.user.dapui")
 			local dap = require("dap")
 			if not dap.adapters.kotlin then
 				dap.adapters.kotlin = {

@@ -87,7 +87,7 @@ return {
 					fields = { "kind", "abbr", "menu" },
 					format = function(entry, vim_item)
 						vim_item.menu = vim.api.nvim_get_mode().mode == "c" and "" or vim_item.kind
-						vim_item.kind = string.format("%s", require("user.icons")["kind"][vim_item.kind])
+						vim_item.kind = string.format("%s", require("pcode.user.icons")["kind"][vim_item.kind])
 						-- vim_item.menu = ({
 						--   nvim_lsp = "(LSP)",
 						--   luasnip = "(Snippet)",
@@ -115,7 +115,7 @@ return {
 		lazy = true,
 		config = function()
 			require("luasnip.loaders.from_vscode").lazy_load()
-			require("user.snippets")
+			require("pcode.user.snippets")
 		end,
 	},
 }

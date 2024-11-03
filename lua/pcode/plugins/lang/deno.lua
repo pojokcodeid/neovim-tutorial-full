@@ -71,7 +71,7 @@ return {
 			},
 		},
 		config = function()
-			require("user.dapui")
+			require("pcode.user.dapui")
 			local js_based_languages = { "typescript" }
 
 			for _, language in ipairs(js_based_languages) do

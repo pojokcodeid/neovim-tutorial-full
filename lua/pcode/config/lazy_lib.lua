@@ -15,7 +15,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
-local icons = require("user.icons").ui
+local icons = require("pcode.user.icons").ui
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
@@ -23,15 +23,15 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 local importdata = {
-	{ import = "plugins" },
+	{ import = "pcode.plugins" },
 }
-local extras = require("user.custem").extras
-local lang = require("user.custem").lang
+local extras = require("pcode.user.custem").extras
+local lang = require("pcode.user.custem").lang
 for _, value in pairs(extras) do
-	table.insert(importdata, { import = "plugins.extras." .. value })
+	table.insert(importdata, { import = "pcode.plugins.extras." .. value })
 end
 for _, value in pairs(lang) do
-	table.insert(importdata, { import = "plugins.lang." .. value })
+	table.insert(importdata, { import = "pcode.plugins.lang." .. value })
 end
 -- Setup lazy.nvim
 require("lazy").setup({

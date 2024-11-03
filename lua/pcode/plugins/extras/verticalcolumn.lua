@@ -4,7 +4,7 @@ return {
 		event = "BufRead",
 		opts = {},
 		config = function()
-			local icons = require("user.icons")
+			local icons = require("pcode.user.icons")
 			require("virt-column").overwrite({
 				exclude = {
 					filetypes = { "help", "text", "markdown" },

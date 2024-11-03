@@ -127,7 +127,7 @@ return {
 			},
 		},
 		config = function()
-			require("user.dapui")
+			require("pcode.user.dapui")
 		end,
 		keys = {
 			{ "<leader>d", "", desc = "  Debug" },

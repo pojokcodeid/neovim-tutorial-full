@@ -96,7 +96,7 @@ return {
 			},
 		},
 		config = function()
-			require("user.dapui")
+			require("pcode.user.dapui")
 			local dap = require("dap")
 			dap.adapters.php = {
 				type = "executable",

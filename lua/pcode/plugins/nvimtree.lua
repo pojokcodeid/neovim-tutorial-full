@@ -5,7 +5,7 @@ return {
 		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "󰙅 Explorer" },
 	},
 	opts = function()
-		local icons = require("user.icons")
+		local icons = require("pcode.user.icons")
 		return {
 			disable_netrw = true,
 			hijack_cursor = true,
