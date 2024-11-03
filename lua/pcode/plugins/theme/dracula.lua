@@ -1,9 +1,9 @@
 return {
 	"Mofiqul/dracula.nvim",
 	priority = 1000,
-	config = function()
+	opts=function()
 		local colors = require("dracula").colors()
-		require("dracula").setup({
+		return{
 			colors = {
 				-- purple = "#FCC76A",
 				menu = colors.bg,
@@ -52,7 +52,10 @@ return {
 				WinBarNC = { fg = colors.fg, bg = colors.bg },
 			},
 			transparent_bg = false,
-		})
+		}
+	end,
+	config = function(_,opts)
+		require("dracula").setup(opts)
 		local colorscheme = pcode.themes.dracula or "dracula"
 		vim.cmd("colorscheme " .. colorscheme)
 	end,
