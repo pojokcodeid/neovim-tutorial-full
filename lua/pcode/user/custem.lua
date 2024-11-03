@@ -62,8 +62,11 @@ M.themes = {
 	-- onedarkpro = "onedark",
 	-- onedarkpro = "onedark_vivid",
 	-- onedarkpro = "onedark_dark",
+	--
+	-- **:: Jetbrains Theme ::** --
+	-- jetbrains = "darcula-dark",
 }
-
-M.transparent = true
+-- activate config transparent_bg
+M.transparent = false
 
 return M
