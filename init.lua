@@ -1,1 +1,1 @@
-require("pcode.core")
+require("core")
