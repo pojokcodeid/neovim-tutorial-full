@@ -2,7 +2,6 @@ return {
 	"sharpchen/Eva-Theme.nvim",
 	lazy = false,
 	priority = 1000,
-	build = ":EvaCompile",
 	-- opts = function(_, opts)
 	-- 	local dark = require("Eva-Theme.palette").dark
 	-- 	local light = require("Eva-Theme.palette").light
