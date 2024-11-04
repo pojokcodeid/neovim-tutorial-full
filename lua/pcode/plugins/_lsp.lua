@@ -53,7 +53,7 @@ return {
 				end,
 				config = function(_, opts)
 					require("mason").setup(opts)
-					require("auto-lsp.masoncfg").ensure_installed(opts.ensure_installed)
+					require("pcode.user.utils.masoncfg").ensure_installed(opts.ensure_installed)
 				end,
 			},
 		},
