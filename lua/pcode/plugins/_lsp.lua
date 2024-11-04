@@ -18,41 +18,38 @@ return {
 			},
 			{
 				"williamboman/mason.nvim",
-				lazy = true,
+				cmd = "Mason",
+				keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
 				build = ":MasonUpdate",
 				opts_extend = { "ensure_installed" },
-				cmd = {
-					"Mason",
-					"MasonInstall",
-					"MasonUninstall",
-					"MasonUninstallAll",
-					"MasonLog",
-				},
-				opts = function(_, opts)
+				opts = function()
 					local icons = require("pcode.user.icons").ui
-					opts.ensure_installed = opts.ensure_installed or {}
-					vim.list_extend(opts.ensure_installed, { "stylua" })
-					opts.ui = {
-						-- border = "none",
-						border = icons.Border,
-						icons = {
-							package_pending = icons.Pending,
-							package_installed = icons.CheckCircle,
-							package_uninstalled = icons.BlankCircle,
+					return {
+						ensure_installed = {
+							"stylua",
+							"lua-language-server",
 						},
-						keymaps = {
-							toggle_server_expand = "<CR>",
-							install_server = "i",
-							update_server = "u",
-							check_server_version = "c",
-							update_all_servers = "U",
-							check_outdated_servers = "C",
-							uninstall_server = "X",
+						ui = {
+							-- border = "none",
+							border = icons.Border,
+							icons = {
+								package_pending = icons.Pending,
+								package_installed = icons.CheckCircle,
+								package_uninstalled = icons.BlankCircle,
+							},
+							keymaps = {
+								toggle_server_expand = "<CR>",
+								install_server = "i",
+								update_server = "u",
+								check_server_version = "c",
+								update_all_servers = "U",
+								check_outdated_servers = "C",
+								uninstall_server = "X",
+							},
 						},
+						log_level = vim.log.levels.INFO,
+						max_concurrent_installers = 4,
 					}
-					opts.log_level = vim.log.levels.INFO
-					opts.max_concurrent_installers = 4
-					return opts
 				end,
 				config = function(_, opts)
 					require("mason").setup(opts)
