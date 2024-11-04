@@ -4,8 +4,7 @@ return {
 	priority = 1000,
 	config = function()
 		require("Eva-Theme").setup({})
-		-- local color = require("Eva-Theme.palette").dark
-		local color = require("Eva-Theme.palette").dark_base.punctuation
+		local color = require("Eva-Theme.palette").dark
 		vim.api.nvim_create_autocmd("ColorScheme", {
 			pattern = "*",
 			callback = function()
