@@ -31,6 +31,17 @@ _G.all_trim = function(s)
 	return s:match("^%s*(.-)%s*$")
 end
 
+_G.current_theme = function()
+	if pcode.themes then
+		local theme = ""
+		for _, value in pairs(pcode.themes or {}) do
+			theme = value
+		end
+		return all_trim(theme)
+	end
+	return ""
+end
+
 local function safeRequire(module)
 	local ok, result = pcall(require, module)
 	if not ok then
