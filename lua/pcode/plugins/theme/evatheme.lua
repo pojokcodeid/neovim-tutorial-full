@@ -4,16 +4,13 @@ return {
 	priority = 1000,
 	config = function()
 		require("Eva-Theme").setup({})
-		local color = require("Eva-Theme.palette").dark_base
+		local color = require("Eva-Theme.palette").dark
 		vim.api.nvim_create_autocmd("ColorScheme", {
 			pattern = "*",
 			callback = function()
 				local hi = vim.api.nvim_set_hl
-				hi(0, "MiniIndentscopeSymbol", { fg = "#FF9070" })
-				hi(0, "MiniIndentscopeSymbolOff", { fg = "#FF9070" })
-				hi(0, "WinBar", { bg = color.background })
-				hi(0, "StatusLine", { bg = color.background })
-				hi(0, "StatusLineNC", { bg = color.background })
+				-- hi(0, "LspInfoBorder", { fg = "#2F3F5C" })
+				-- hi(0, "LspInfoBorder", { fg = "#598DEF" })
 				hi(0, "LspInfoBorder", { fg = "#8A97C3" })
 				-- hi(0, "FloatBorder", { fg = "#2F3F5C" })
 				-- hi(0, "FloatBorder", { fg = "#598DEF" })
@@ -43,7 +40,5 @@ return {
 				hi(0, "TermCursorNC", { bg = "#FF9070", fg = color.dark })
 			end,
 		})
-		local colorscheme = pcode.themes.evatheme or "Eva-Dark"
-		vim.cmd("colorscheme " .. colorscheme)
 	end,
 }
