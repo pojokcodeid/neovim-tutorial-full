@@ -53,7 +53,9 @@ return {
 				end,
 				config = function(_, opts)
 					require("mason").setup(opts)
-					require("pcode.user.utils.masoncfg").ensure_installed(opts.ensure_installed)
+					for _, value in pairs(opts.ensure_installed) do
+						require("pcode.user.utils.masoncfg").try_install(value)
+					end
 				end,
 			},
 		},
